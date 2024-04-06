@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes} from "react-router-dom";
+import AppLayout from "./Layout/AppLayout";
+import HomePage from "./pages/Homepages/HomePage";
+import MoviePage from "./pages/Movies/MoviePage";
+import MovieDetailPage from "./pages/MovieDetail/MovieDetailPage";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+//홈페이지
+//영화 전체 목록을 보여주는 페이지
+//영화 디테일 페이지
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<AppLayout/>}>
+          <Route index element={<HomePage/>} />
+          <Route path="Movies" >
+            <Route index element={<MoviePage/>} />
+            <Route path=":id" element={<MovieDetailPage />} />
+          </Route>
+        </Route>
+        <Route path="*" element={<NotFoundPage />}/>
+      </Routes>
+
   );
 }
 
