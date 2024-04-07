@@ -11,7 +11,14 @@ const Banner = () =>{
     console.log(data);
     if(isLoading){
         <div>
-            <ClipLoader/>
+            <ClipLoader
+                color="rgba(999, 0, 0, 1)"
+                cssOverride={{
+                  'font-weight': 'bold'
+                }}
+                size={39}
+                speedMultiplier={0.5}
+            />
             <h3>잠시만 기다려주세요...</h3>
         </div>
     }
