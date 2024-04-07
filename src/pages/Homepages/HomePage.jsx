@@ -1,7 +1,11 @@
 import React from "react";
+import Banner from "./components/Banner/Banner";
 
 const HomePage= ()=>{   
-    return (<div style={{ color: 'white' }}>홈페이지</div>)
+    return (
+    <div style={{ color: 'white' }}>
+        <Banner/>
+    </div>)
 }
 
 
