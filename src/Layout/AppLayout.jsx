@@ -11,7 +11,7 @@ import { Button, Form, Container, Nav, Navbar } from 'react-bootstrap';
 
 const AppLayout=()=>{
     return(
-        <div style={{ height:'100vh', backgroundColor: 'black' }}>
+        <div style={{ backgroundColor: 'black' }}>
             <Navbar style={{ backgroundColor: 'black' }}>
             <Container fluid>
               <Navbar.Brand href="/">
