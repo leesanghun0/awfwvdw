@@ -6,6 +6,7 @@ import MoviePage from "./pages/Movies/MoviePage";
 import MovieDetailPage from "./pages/MovieDetail/MovieDetailPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 
 //홈페이지

@@ -1,8 +1,23 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import './movieCard.style.css';
+import { useMovieGenre } from "../../hook/useMoviegenre";
 
 const MovieCard = ({movie}) =>{
+
+    const {data:genreData} = useMovieGenre();
+    //console.log("장르 : ",genreDate);
+
+    const showGenre=(genreIdList)=>{
+        if(!genreData) return [];
+        
+        const genreNameList = genreIdList.map((id)=>{
+            const genreObject= genreData.find((genre)=>genre.id === id)
+            return genreObject.name;
+        })
+        return genreNameList;
+    }
+
     return(
     <div style={{
         backgroundImage:"url("+`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`+")"
@@ -11,9 +26,9 @@ const MovieCard = ({movie}) =>{
     >
         <div className="overlay">
             <h2>{movie?.title}</h2>
-            {movie.genre_ids.map((index,item)=>
-                <Badge className="movie-genre" bg="danger" key={index}>
-                    {item}
+            {showGenre(movie.genre_ids).map((id,item)=>
+                <Badge className="movie-genre" bg="danger" key={id}>
+                    {id}
             </Badge>)}
             <div><i className="xi-star"></i> {(movie.vote_average).toFixed(1)}</div>
             <div><i className="xi-crown"></i> {Math.floor(movie.popularity)}</div>

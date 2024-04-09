@@ -8,6 +8,7 @@ import TopLatedMovie from "../../pages/Homepages/components/topLatedMovieSlide/T
 
 
 const MovieSlider = ({title, movies, responsive})=>{
+    //console.log(movies)
     return (
     <div>
         <h3>{title}</h3>
@@ -17,8 +18,8 @@ const MovieSlider = ({title, movies, responsive})=>{
             responsive={responsive}
             centerMode={true}
             infinite={true}
-            // customTransition="all .5"
-            // transitionDuration={500}
+            customTransition="all .5"
+            transitionDuration={500}
             containerClass="carousel-container"
             removeArrowOnDeviceType={["tablet", "mobile"]}
             itemClass="carousel-item-padding-40-px"

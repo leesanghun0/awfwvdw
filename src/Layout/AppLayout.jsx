@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 // import Button from 'react-bootstrap/Button';
 // import Container from 'react-bootstrap/Container';
 // import Form from 'react-bootstrap/Form';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
-import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Outlet,Link, useNavigate } from "react-router-dom";
 import { Button, Form, Container, Nav, Navbar } from 'react-bootstrap';
 
 
 const AppLayout=()=>{
+  const [keyword, setKeyword] = useState("");
+  const navigate= useNavigate();
+
+  const searchByKeword = (event) => {
+    event.preventDefault();
+
+    navigate(`/movies?q=${keyword}`)
+    setKeyword("")
+  }
+
     return(
-        <div style={{ backgroundColor: 'black' }}>
+        <div style={{ backgroundColor: 'black',height:"100%" }}>
             <Navbar style={{ backgroundColor: 'black' }}>
             <Container fluid>
               <Navbar.Brand href="/">
@@ -24,12 +33,14 @@ const AppLayout=()=>{
                   <Link to="/"  style={{ color: 'white', marginRight: '20px',textDecoration:'none'  }}>Home</Link>
                   <Link to="/Movies"  style={{ color: 'white', textDecoration:'none' }}>Movies</Link>
                 </Nav>
-                <Form className="d-flex">
+                <Form className="d-flex" onSubmit={searchByKeword}>
                   <Form.Control
                     type="search"
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
+                    value={keyword}
+                    onChange={(event)=>setKeyword(event.target.value)}
                   />
                   <Button variant="outline-danger">Search</Button>
                 </Form>
