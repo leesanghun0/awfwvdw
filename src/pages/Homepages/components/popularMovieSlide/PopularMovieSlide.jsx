@@ -16,9 +16,6 @@ const PopularMovieSlide = () => {
         return (<div>
             <ClipLoader
                 color="rgba(999, 0, 0, 1)"
-                cssOverride={{
-                  'font-weight': 'bold'
-                }}
                 size={39}
                 speedMultiplier={0.5}
             />
