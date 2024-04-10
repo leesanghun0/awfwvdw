@@ -11,6 +11,6 @@ export const useMovieGenre =()=>{
         queryKey:['movie-genre'],
         queryFn:fetchMovieGenre,
         select:(result)=>result.data.genres,
-        staleTime:300000,//5분
+        staleTime:30000,//5분
     }))
 }

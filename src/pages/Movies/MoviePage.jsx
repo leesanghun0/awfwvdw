@@ -12,15 +12,16 @@ const MoviePage= ()=>{
     const [query,setQuerty] = useSearchParams();
     const keyword = query.get("q");
 
-    const {data, isLoading, isError, error} = useSearchMovieQuery({keyword});   
+    const {data, isLoading, isError, error} = useSearchMovieQuery({keyword, page});   
     console.log(data)
 
     const handlePageClick=({selected})=>{
+        console.log("page",page)
         setPage(selected+1);
     }
 
     if(isLoading)
-        return (<div>
+        return (<div style={{height:"100vh",backgroundColor:"black"}}>
             <ClipLoader
                 color="rgba(999, 0, 0, 1)"
                 size={39}
@@ -35,39 +36,44 @@ const MoviePage= ()=>{
     }
     return (
     <Container>
-        <Row style={{padding:"50px 0"}}>
+        <Row>
             <Col lg={4} xs={12}>
                 {""}필터
                 {""}
             </Col>  
-            <Col lg={8} xs={8}>
+            <Col lg={8} xs={12}>
                 <Row>
                     {data?.results.map((movie, index)=>(
-                    <Col key={index} lg={3} xs={12}>
+                    <Col key={index} lg={3} md={4} xs={12} sm={5}  className="d-flex justify-content-center">
                         <MovieCard movie={movie} />
                     </Col>))}
                 </Row>
-                <ReactPaginate
-                  nextLabel="next >"
-                  onPageChange={handlePageClick}
-                  pageRangeDisplayed={3}
-                  marginPagesDisplayed={2}
-                  pageCount={data?.total_pages} //전체페이지
-                  previousLabel="< previous"
-                  pageClassName="page-item"
-                  pageLinkClassName="page-link"
-                  previousClassName="page-item"
-                  previousLinkClassName="page-link"
-                  nextClassName="page-item"
-                  nextLinkClassName="page-link"
-                  breakLabel="..."
-                  breakClassName="page-item"
-                  breakLinkClassName="page-link"
-                  containerClassName="pagination"
-                  activeClassName="active"
-                  renderOnZeroPageCount={null}
-                  forcePage={page-1}
-                />
+                <Row  style={{ paddingTop: '50px',boxSizing:"border-box"}}>
+                    <Col>
+                        <ReactPaginate
+                        nextLabel="next >"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={3}
+                        marginPagesDisplayed={2}
+                        pageCount={data?.total_pages} //전체페이지
+                        previousLabel="< previous"
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousClassName="page-item"
+                        previousLinkClassName="page-link"
+                        nextClassName="page-item"
+                        nextLinkClassName="page-link"
+                        breakLabel="..."
+                        breakClassName="page-item"
+                        breakLinkClassName="page-link"
+                        containerClassName="pagination"
+                        activeClassName="active"
+                        renderOnZeroPageCount={null}
+                        forcePage={page-1}
+                        />
+                    </Col>
+                </Row>
+                
             </Col>  
         </Row>
     </Container>)
