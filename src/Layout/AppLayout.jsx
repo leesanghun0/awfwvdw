@@ -20,16 +20,18 @@ const AppLayout=()=>{
   }
 
     return(
-        <div style={{ backgroundColor: 'black',height:"100%" }}>
-            <Navbar style={{ backgroundColor: 'black' }}>
+        <div style={{ backgroundColor: 'black',height:"100%" }} >
+            <Navbar style={{ backgroundColor: 'black' }}  expand='md'>
             <Container fluid>
-              <Navbar.Brand href="/">
-                <img src="https://www.kocca.kr/trend/vol30/img/s11/img_1.jpg" width={100} alt="넷플릭스 로고" />
+              <Navbar.Brand>
+                <Link to="/">
+                  <img src="https://www.kocca.kr/trend/vol30/img/s11/img_1.jpg" width={100} alt="넷플릭스 로고" />
+                </Link>
               </Navbar.Brand>
-              <Navbar.Toggle aria-controls="navbarScroll" />
+              <Navbar.Toggle  />
               <Navbar.Collapse id="navbarScroll">
                 <Nav
-                  className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px'}}>
+                  className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px'}} navbarScroll>
                   <Link to="/"  style={{ color: 'white', marginRight: '20px',textDecoration:'none'  }}>Home</Link>
                   <Link to="/Movies"  style={{ color: 'white', textDecoration:'none' }}>Movies</Link>
                 </Nav>

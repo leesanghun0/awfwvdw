@@ -1,7 +1,16 @@
+/* .navbar-toggler-icon{
+   border: 1px solid white;
+   background-color: white;
+   padding: 15px;
+}
+
+.navbar-toggler-icon span{
+
+} */
+
 .banner{
     height: 56vh;
 }
-
 .banner::before{
     content: "";
     background: linear-gradient(to top, black, transparent);
@@ -21,4 +30,17 @@
 
 .banner-text-area>*{
     z-index: 2;
+}
+@media (max-width: 960px){
+    .banner-text-area{
+        width: 100%;
+       border: 1px solid black;
+    }
+}
+
+@media (max-width: 480px){
+    .banner-text-area{
+        width: 100%;
+       border: 1px solid black;
+    }
 }
