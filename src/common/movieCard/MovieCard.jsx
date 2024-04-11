@@ -2,12 +2,11 @@ import React from "react";
 import { Badge } from "react-bootstrap";
 import './movieCard.style.css';
 import { useMovieGenre } from "../../hook/useMoviegenre";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({movie}) =>{
-
     const {data:genreData} = useMovieGenre();
     //console.log("장르 : ",genreDate);
-
     const showGenre=(genreIdList)=>{
         if(!genreData) return [];
         
@@ -18,8 +17,13 @@ const MovieCard = ({movie}) =>{
         return genreNameList;
     }
 
+       const navigate = useNavigate();
+       const goToDetailPage =(id)=>{
+           navigate(`/movies/${id}`)
+       }
+
     return(
-    <div style={{
+    <div onClick={()=>goToDetailPage(movie?.id)} style={{
         backgroundImage:"url("+`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`+")"
     }}
     className="movie-card"

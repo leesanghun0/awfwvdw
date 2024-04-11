@@ -38,8 +38,12 @@ const MoviePage= ()=>{
     <Container>
         <Row>
             <Col lg={4} xs={12}>
-                {""}필터
-                {""}
+               <Row>
+                    <Col className="border border-white">1</Col>
+               </Row>
+               <Row>
+                    <Col className="border border-white">1</Col>
+               </Row>
             </Col>  
             <Col lg={8} xs={12}>
                 <Row>

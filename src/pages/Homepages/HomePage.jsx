@@ -4,11 +4,13 @@ import PopularMovieSlide from "./components/popularMovieSlide/PopularMovieSlide"
 import TopLatedMovieSlide from "./components/topLatedMovieSlide/TopLatedMovieSlide";
 import UpComingMovieSlide from "./components/upcominMovieSlide/UpComingMovieSlide";
 
-const HomePage= ()=>{   
+
+const HomePage=()=>{   
+   
     return (
     <div style={{ color: 'white' }}>
         <Banner/>
-        <PopularMovieSlide />
+        <PopularMovieSlide/>
         <TopLatedMovieSlide/>
         <UpComingMovieSlide/>
     </div>)
