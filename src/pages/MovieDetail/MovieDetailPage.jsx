@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Badge } from 'react-bootstrap';
 import './MovieDetail.style.css';
 import { useDetailMovieQuery } from "../../hook/useDetailMovie";
 import { useMovieGenre } from "../../hook/useMoviegenre";
 import { useParams } from "react-router-dom";
 import { addCommas } from "../../utils/numbers";
-import MoviewReview from "./components/reviews/MoviewReview";
-
-
-//https://www.themoviedb.org/t/p/w300_and_h450_bestv2)
-
+import MoviewReview from "./components/movieReview/MoviewReview";
+import { useMoviePreviewVideoQuery } from "../../hook/useMoviePreviewVido"; 
+import TrailerModal from "./components/trailerModal/TrailerModal";
 
 const MovieDetailPage= ()=>{
        
     const { id }=useParams()
     const { data, isLoading, isError, error } = useDetailMovieQuery({ id })
-    console.log(data);
+    //console.log(data);
+
+    const {data:preview} = useMoviePreviewVideoQuery({id})
+    //console.log("미리보기:",preview)
+
+    let [openModal, setOpenModal] =useState(false);
+    if(openModal){
+        document.body.style.overflow="hidden";
+    }else{
+        document.body.style.overflow="auto";
+    }
 
     if(isLoading){
         return  <p>Loading...</p>
@@ -24,7 +32,8 @@ const MovieDetailPage= ()=>{
         return (<div>{error.message}</div>)
     }
 
-    return (<div className="detail-container">
+    return (
+    <div className="detail-container">
         <div className="detail-poster">
            <img src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${data?.poster_path}`} alt="" />
         </div>
@@ -60,9 +69,14 @@ const MovieDetailPage= ()=>{
                     {data?.runtime}분
                 </li>
             </ul>
-            <MoviewReview/>
+
+            {/* <MoviewReview id={id}/> */}
+
+            <button className="modal-button" onClick={()=>setOpenModal(true)}>
+                영화더보기
+            </button>
+            {openModal?<TrailerModal id={id} preview={preview} setOpenModal={setOpenModal} />:null}
         </div>
-        
     </div>)
 }
 

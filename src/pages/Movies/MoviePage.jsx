@@ -77,7 +77,6 @@ const MoviePage= ()=>{
                         />
                     </Col>
                 </Row>
-                
             </Col>  
         </Row>
     </Container>)

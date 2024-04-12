@@ -42,8 +42,6 @@ li{
     margin: 0 10px;
 }
 
-
-
 .detail-movie-textarea-overview{
     border: 1px solid white;
     border-left: 0;
@@ -68,6 +66,17 @@ li{
     background-color: red;
     border-radius: 5px;
     margin-right: 5px;
+}
+
+.modal-button{
+    border: 1px solid red;
+    background-color: black;
+    color: white;
+    width: 200px;
+    height: 50px;
+}
+.modal-button:hover{
+    color: red;
 }
 
 @media(max-width:980px){
