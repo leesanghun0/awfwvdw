@@ -1,0 +1,38 @@
+.movie-review{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 20px 0;
+    width: 95%;
+    margin: 0 auto;
+
+}
+.movie-review-list{
+    padding: 0;
+    
+}
+
+.movie-review-list li{
+    border: 2px solid red;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.movie-review-user{
+    display: flex;
+}
+
+.xi-profile{
+    font-size: 40px;
+    padding: 0 5px;
+}
+.movie-review-user-content{
+    text-indent: 12px;
+}
+.more-btn{
+    color: gray;
+    display: block;
+    cursor: pointer;
+    text-indent: 0;
+}
