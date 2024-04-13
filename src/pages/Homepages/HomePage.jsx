@@ -8,7 +8,7 @@ import UpComingMovieSlide from "./components/upcominMovieSlide/UpComingMovieSlid
 const HomePage=()=>{   
    
     return (
-    <div style={{ color: 'white' }}>
+    <div style={{color: 'white' }}>
         <Banner/>
         <PopularMovieSlide/>
         <TopLatedMovieSlide/>

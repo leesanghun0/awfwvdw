@@ -36,3 +36,6 @@
     cursor: pointer;
     text-indent: 0;
 }
+.more-btn:hover{
+    text-decoration: underline;
+}

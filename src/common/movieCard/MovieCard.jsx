@@ -41,4 +41,4 @@ const MovieCard = ({movie}) =>{
     </div>)
 }
 
-export default MovieCard
+export default MovieCard;

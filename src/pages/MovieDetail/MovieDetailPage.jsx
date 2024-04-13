@@ -9,15 +9,14 @@ import MovieReview from "./components/movieReview/MovieReview";
 import { useMoviePreviewVideoQuery } from "../../hook/useMoviePreviewVido"; 
 import TrailerModal from "./components/trailerModal/TrailerModal";
 import MovieRecommend from "./components/movieRecommend/MovieRecommend";
+import { useRecommendMovieQuery } from "../../hook/useRecommendMovie";
 
 const MovieDetailPage= ()=>{
        
     const { id }=useParams()
     const { data, isLoading, isError, error } = useDetailMovieQuery({ id })
-    //console.log(data);
-
+    const{data : recommend } = useRecommendMovieQuery({id})
     const {data:preview} = useMoviePreviewVideoQuery({id})
-    //console.log("미리보기:",preview)
     let [openModal, setOpenModal] =useState(false);
     if(openModal){
         document.body.style.overflow="hidden";
@@ -78,7 +77,7 @@ const MovieDetailPage= ()=>{
                 </div>
             </div>
             <MovieReview id={id}/>  
-            <MovieRecommend id={id}/> 
+            <MovieRecommend id={id} recommend={recommend}/> 
         </div>    
     )
 }

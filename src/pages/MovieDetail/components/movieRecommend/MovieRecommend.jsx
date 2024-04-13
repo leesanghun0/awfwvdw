@@ -1,23 +1,30 @@
 import React from "react";
-import { Badge } from 'react-bootstrap';
-// import { useParams } from "react-router-dom";
-import { useRecommendMovieQuery } from "../../../../hook/useRecommendMovie";
+import Carousel from 'react-multi-carousel';
+import { responsive } from '../../../../constants/responsive';
+import MovieRecommendCard from "./components/MovieRecommendCard";
+import './movieRecommend.style.css'
 
-const MovieRecommend=({id})=>{
-    const{data:recommend,isLoading,isError,error} = useRecommendMovieQuery({id})
-    console.log(recommend)
-    if(isLoading){
-        return  <p>Loading...</p>
-    }
-    if(isError){
-        return (<div>{error.message}</div>)
-    }
+const MovieRecommend=({recommend })=>{
+    //console.log(recommend)
     return (
-    <>
-        <ul>
-            {recommend.map((item,key)=><li key={key}>{item}</li>)}
-        </ul>  
-    </>)
+    <div className="movie-recommend">
+        <h2 className="movie-recommend-title">추천작</h2>
+        <Carousel
+            className="movie-recommend-slider"
+            swipeable={true}
+            draggable={true}
+            responsive={responsive}
+            centerMode={true}
+            infinite={true}
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            itemClass="carousel-item-padding-40-px"
+        >
+          {recommend?.map((item,index)=><MovieRecommendCard item={item} key={index}/>)}
+        </Carousel>
+    </div>)
 }
 
 export default MovieRecommend;

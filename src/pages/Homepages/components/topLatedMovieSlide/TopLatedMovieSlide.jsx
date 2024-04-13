@@ -9,7 +9,7 @@ import { responsive } from "../../../../constants/responsive";
 const TopLatedMovie = () =>{
 
     const {data, isLoading, isError, error}= useTopLatedMoviesQuery();
-    console.log(data)
+    //console.log(data)
 
     if(isLoading){
         return (<div>

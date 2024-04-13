@@ -4,6 +4,7 @@
     background-size: cover;
     cursor: pointer;
     transition: 0.5s;
+    
 }
 
 .overlay{
@@ -32,4 +33,8 @@
 }
 .xi-star, .xi-crown{
     color: yellow;
+}
+
+.react-multi-carousel-item.carousel-item-padding-40-px{
+    margin:  0 15px;
 }

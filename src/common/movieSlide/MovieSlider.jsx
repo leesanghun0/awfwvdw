@@ -2,7 +2,7 @@ import React from "react";
 import './movieSlider.style.css';
 import Carousel from 'react-multi-carousel';
 import MovieCard from "../movieCard/MovieCard";
-import TopLatedMovie from "../../pages/Homepages/components/topLatedMovieSlide/TopLatedMovieSlide";
+//import TopLatedMovie from "../../pages/Homepages/components/topLatedMovieSlide/TopLatedMovieSlide";
 
 
 
