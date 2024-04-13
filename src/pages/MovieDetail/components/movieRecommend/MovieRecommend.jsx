@@ -3,6 +3,7 @@ import Carousel from 'react-multi-carousel';
 import { responsive } from '../../../../constants/responsive';
 import MovieRecommendCard from "./components/MovieRecommendCard";
 import './movieRecommend.style.css'
+//import MovieCard from "../../../../common/movieCard/MovieCard";
 
 const MovieRecommend=({recommend })=>{
     //console.log(recommend)

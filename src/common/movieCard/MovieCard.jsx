@@ -5,7 +5,7 @@ import { useMovieGenre } from "../../hook/useMoviegenre";
 import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({movie}) =>{
-    const {data:genreData} = useMovieGenre();
+    const {data:genreData, isLoading,isError, error} = useMovieGenre();
     //console.log("장르 : ",genreDate);
     const showGenre=(genreIdList)=>{
         if(!genreData) return [];
@@ -21,6 +21,13 @@ const MovieCard = ({movie}) =>{
        const goToDetailPage =(id)=>{
            navigate(`/movies/${id}`)
        }
+
+    if(isLoading){
+        return <div>잠시만 기다려주세요..</div>
+    }
+    if(isError){
+        return (<div>{error.message}</div>)
+    }
 
     return(
     <div onClick={()=>goToDetailPage(movie?.id)} style={{
